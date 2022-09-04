@@ -13,11 +13,11 @@ class PortScan:
         start_addr: integer containing start range of the scan
         end_addr: integer containing end range of the scan 
     """
-    def __init__(self, ip_addr=str, start_addr=int, end_addr=int):
+    def __init__(self, args=list):
         """Inits PortScan Class"""
-        self.ip_addr = ip_addr
-        self.start_addr = int(start_addr)
-        self.end_addr = int(end_addr)
+        self.ip_addr = args[1]
+        self.start_addr = int(args[2])
+        self.end_addr = int(args[3])
 
 
     def _scan_ports(self):
@@ -28,8 +28,9 @@ class PortScan:
                 print(f"Port open at {port}")
                 sock.close()
 
-
+    def run_scan(self):
+        self._scan_ports()
 
 
 if __name__ == '__main__':
-    PortScan(sys.argv[1], sys.argv[2], sys.argv[3])._scan_ports()
+    PortScan(sys.argv).run_scan()
