@@ -5,7 +5,7 @@ import socket
 class PortScan:
     """Scan network ports of a IP Address
 
-    Read ip addressa start and end range
+    Read ip address start and end range
     in sys args then scan that
     range for open network ports
 
